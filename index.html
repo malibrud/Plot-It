@@ -3,54 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Program - High-Performance Tool</title>
+    <title>PlotIt — a fast, dependency-free viewer for time-history data</title>
+    <meta name="description" content="PlotIt reads RPC3, PLT, fstrm, and CSV time-history files and plots tens of millions of samples smoothly. Single self-contained .exe, no installer.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>My Program</h1>
+        <h1>PlotIt</h1>
         <nav>
-            <a href="#resources">Resources</a>
+            <a href="#features">Features</a>
+            <a href="#screenshots">Screenshots</a>
+            <a href="#download">Download</a>
         </nav>
     </header>
 
     <section id="hero">
-        <h2>A High-Performance [Your Program Type] Tool</h2>
-        <p>Brief description: Fast, efficient, and built for [target users]. Load large projects in seconds.</p>
+        <h2>A fast, dependency-free viewer for time-history data</h2>
+        <p>Load RPC3, PLT, fstrm, or CSV files and see tens of millions of samples plotted
+           instantly &mdash; no installer, no companion DLLs, just one .exe.</p>
+
+        <!--
+          Demo video not yet recorded — see docs/demo-script.md and docs/demo-video-guide.md
+          in the win32app repo for the production plan. Once uploaded (unlisted), replace this
+          div with the iframe embed below.
+
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="PlotIt demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        -->
+        <div class="video-embed hero-image">
+            <img src="images/dual-axis.png" alt="PlotIt plotting ten channels of road-load data, with wheel displacement and engine speed automatically split across a dual Y-axis">
+        </div>
     </section>
 
     <section id="features">
-        <h2>Key Features</h2>
-        <ul>
-            <li><strong>Fast Loading:</strong> Handles massive datasets quickly.</li>
-            <li><strong>Compatibility:</strong> Works with [relevant formats or tools].</li>
-            <li><strong>Customization:</strong> Themes, plugins, and more.</li>
-            <!-- Add more bullets based on your program -->
-        </ul>
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Reads what you already have</h3>
+                <p>RPC3, PLT/SimCreator, fstrm/Moog Stream, and CSV &mdash; with automatic
+                   header and unit detection.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Layouts that fit the data</h3>
+                <p>Overlay every channel, stack them one per row, or group rows by
+                   engineering unit.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Automatic dual Y-axis</h3>
+                <p>Channels spanning very different scales split cleanly onto a second,
+                   right-hand axis &mdash; no manual setup.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Data-quality at a glance</h3>
+                <p>NaNs, infinities, subnormals, and dead channels are flagged directly in
+                   the channel list, with a tooltip breakdown on hover.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Built for scale</h3>
+                <p>Smooth zoom, pan, and redraw at tens of millions of samples per
+                   channel.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Zero install</h3>
+                <p>A single self-contained .exe. No installer, no dependencies, no
+                   companion DLLs.</p>
+            </div>
+        </div>
     </section>
 
-    <section id="philosophy">
-        <h2>Our Philosophy</h2>
-        <ol>
-            <li><strong>Performance First:</strong> No bloat, just speed.</li>
-            <li><strong>User-Centric:</strong> Designed for real workflows.</li>
-            <li><strong>Open Source:</strong> Contribute and extend.</li>
-        </ol>
+    <section id="screenshots">
+        <h2>Screenshots</h2>
+        <div class="screenshot-grid">
+            <figure>
+                <img src="images/stacked-by-unit.png" alt="Twenty channels of synthetic automotive field-test data, stacked by engineering unit">
+                <figcaption>Stacked-by-unit layout &mdash; one row per engineering unit,
+                    each with its own scale.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/quality-indicators.png" alt="File tree showing red NaN, infinity, and subnormal indicators on channel thumbnails">
+                <figcaption>Data-quality indicators &mdash; NaNs, infinities, and subnormal
+                    values flagged directly on each channel.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/dual-axis.png" alt="Wheel displacement and engine speed channels automatically split across a dual Y-axis">
+                <figcaption>Automatic dual Y-axis &mdash; wildly different scales, one
+                    readable plot.</figcaption>
+            </figure>
+        </div>
+        <p class="screenshot-note">All screenshots use synthetic example data generated for
+           testing &mdash; no proprietary or recorded test data.</p>
     </section>
 
     <section id="download">
         <h2>Download</h2>
-        <p>Get started today:</p>
-        <a href="downloads/my-program.exe" class="btn" download>Download for Windows</a>
-        <a href="downloads/my-program.zip" class="btn" download>Download Source Code</a>
-        <!-- Add links for other platforms -->
-        <p><a href="#read-more">Read More</a></p>
+        <p>PlotIt is free and runs on Windows 10+.</p>
+        <a href="https://gitlab.com/ArchWoodCode/win32app/-/releases" class="btn">Get the latest release</a>
+        <p><a href="https://gitlab.com/ArchWoodCode/win32app">Browse the source</a></p>
     </section>
 
     <footer>
-        <p>Follow us:</p>
-        <a href="https://x.com/yourhandle">𝕏</a>
-        <a href="https://mastodon.social/@yourhandle">Mastodon</a>
+        <p><a href="https://gitlab.com/ArchWoodCode/win32app">Source on GitLab</a></p>
     </footer>
 
 </body>
