@@ -211,8 +211,44 @@ section {
     max-width: 720px;
 }
 
-#changelog, #license {
+#changelog, #license, #releases {
     max-width: 720px;
+}
+
+.release-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.release-row:last-child {
+    border-bottom: none;
+}
+
+.release-row-info h3 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+    color: var(--maroon);
+}
+
+.release-row-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.release-row-info p a {
+    color: var(--accent);
+}
+
+.btn-small {
+    padding: 8px 18px;
+    margin: 0;
+    font-size: 0.9rem;
+    flex-shrink: 0;
 }
 
 .license-text {
