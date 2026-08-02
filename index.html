@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlotIt — a fast, dependency-free viewer for time-history data</title>
     <meta name="description" content="PlotIt reads RPC3, PLT, fstrm, and CSV time-history files and plots tens of millions of samples smoothly. Single self-contained .exe, no installer.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>PlotIt</h1>
+        <div class="brand">
+            <img src="images/favicon.png" alt="">
+            <h1>PlotIt</h1>
+        </div>
         <nav>
             <a href="#features">Features</a>
             <a href="#screenshots">Screenshots</a>
@@ -21,6 +25,7 @@
         <h2>A fast, dependency-free viewer for time-history data</h2>
         <p>Load RPC3, PLT, fstrm, or CSV files and see tens of millions of samples plotted
            instantly &mdash; no installer, no companion DLLs, just one .exe.</p>
+        <p class="hero-tag">Designed by an engineer, for engineers.</p>
 
         <!--
           Demo video not yet recorded — see docs/demo-script.md and docs/demo-video-guide.md
@@ -51,6 +56,17 @@
                    header and unit detection.</p>
             </div>
             <div class="feature-card">
+                <h3>Time, frequency, and histogram views</h3>
+                <p>Time-domain, PSD, and CSD plots &mdash; including CSD Matrix and CSD
+                   Overlaid modes &mdash; plus per-channel histograms.</p>
+            </div>
+            <div class="feature-card">
+                <h3>CSD phase wrap control</h3>
+                <p>Unwrap the phase, or choose a wrap range &mdash; &plusmn;180&deg;,
+                   0&ndash;360&deg;, 0&ndash;720&deg;, and more &mdash; on cross-spectral
+                   density plots.</p>
+            </div>
+            <div class="feature-card">
                 <h3>Layouts that fit the data</h3>
                 <p>Overlay every channel, stack them one per row, or group rows by
                    engineering unit.</p>
@@ -61,19 +77,40 @@
                    right-hand axis &mdash; no manual setup.</p>
             </div>
             <div class="feature-card">
+                <h3>Zoom exactly where you point</h3>
+                <p>Rectangle-zoom by dragging, middle-drag to pan, scroll to zoom, or
+                   double-click a point to zoom straight to it &mdash; left-click zooms up
+                   to that point, right-click zooms in from it.</p>
+            </div>
+            <div class="feature-card">
                 <h3>Data-quality at a glance</h3>
                 <p>NaNs, infinities, subnormals, and dead channels are flagged directly in
                    the channel list, with a tooltip breakdown on hover.</p>
             </div>
             <div class="feature-card">
+                <h3>Channel statistics on hover</h3>
+                <p>Sample count, min/max range, and data-quality flags for every channel,
+                   right in the file tree.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Thumbnail previews</h3>
+                <p>Every channel gets a small preview plot in the file tree, so you can see
+                   the shape of the data before you even select it.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Interactive legend</h3>
+                <p>Hover a series to highlight its trace, right-click to remove it from the
+                   plot, left-click to bring it to the front.</p>
+            </div>
+            <div class="feature-card">
                 <h3>Built for scale</h3>
-                <p>Smooth zoom, pan, and redraw at tens of millions of samples per
-                   channel.</p>
+                <p>Smooth zoom, pan, and redraw &mdash; no noticeable latency at 150 million
+                   plotted points.</p>
             </div>
             <div class="feature-card">
                 <h3>Zero install</h3>
-                <p>A single self-contained .exe. No installer, no dependencies, no
-                   companion DLLs.</p>
+                <p>A single self-contained .exe under 1.2&nbsp;MB. No installer, no
+                   dependencies, no companion DLLs.</p>
             </div>
         </div>
     </section>

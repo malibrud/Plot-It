@@ -4,8 +4,9 @@
     --bg: #ffffff;
     --bg-alt: #f6f7f9;
     --border: #e2e4e8;
-    --accent: #1f6feb;
-    --accent-dark: #185abc;
+    --accent: #000099;
+    --accent-dark: #000070;
+    --maroon: #880015;
 }
 
 * {
@@ -25,10 +26,21 @@ header {
     background-color: var(--bg);
     padding: 20px 24px;
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 3px solid var(--accent);
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    width: 28px;
+    height: 28px;
 }
 
 header h1 {
@@ -36,6 +48,7 @@ header h1 {
     display: inline-block;
     font-size: 1.4rem;
     letter-spacing: 0.02em;
+    color: var(--maroon);
 }
 
 nav {
@@ -51,7 +64,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--ink);
+    color: var(--accent);
 }
 
 h2 {
@@ -80,6 +93,14 @@ section {
     font-size: 1.1rem;
     max-width: 620px;
     margin: 16px auto 32px;
+}
+
+.hero-tag {
+    color: var(--maroon) !important;
+    font-weight: 600;
+    font-size: 1rem !important;
+    letter-spacing: 0.01em;
+    margin: -16px auto 32px !important;
 }
 
 .video-embed {
@@ -128,12 +149,14 @@ section {
 .feature-card {
     background-color: var(--bg);
     border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
     border-radius: 8px;
     padding: 20px;
 }
 
 .feature-card h3 {
     margin: 0 0 8px;
+    color: var(--maroon);
     font-size: 1.05rem;
 }
 
