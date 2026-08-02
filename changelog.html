@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog — PlotIt</title>
+    <meta name="description" content="What's new in PlotIt, release by release.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="images/favicon.png" alt="">
+            <h1><a href="index.html">PlotIt</a></h1>
+        </div>
+        <nav>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#screenshots">Screenshots</a>
+            <a href="index.html#about">About</a>
+            <a href="changelog.html">Changelog</a>
+            <a href="index.html#download">Download</a>
+        </nav>
+    </header>
+
+    <section id="changelog">
+        <h2>Changelog</h2>
+        <p class="changelog-intro">What's new, release by release &mdash; the changes you'd
+           actually notice while using PlotIt. Build numbers and internal cleanup are left
+           out.</p>
+
+        <div class="release">
+            <h3>0.24 <time>&mdash; August 1, 2026</time></h3>
+            <ul>
+                <li>CSV files no longer list a redundant straight-line time column as a
+                    plottable channel.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.23 <time>&mdash; August 1, 2026</time></h3>
+            <ul>
+                <li>Fixed the harmonic cursor on frequency plots (PSD/CSD) so it displays
+                    correctly when zoomed in away from 0&nbsp;Hz.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.22 <time>&mdash; August 1, 2026</time></h3>
+            <ul>
+                <li>Middle-mouse-button panning now redraws the plot live while you drag,
+                    instead of freezing until you let go.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.21 <time>&mdash; July 31, 2026</time></h3>
+            <ul>
+                <li>Added data-quality indicators &mdash; NaNs, infinities, huge values,
+                    subnormal values, and dead channels are now flagged directly on each
+                    channel in the file tree, with a tooltip giving the full breakdown.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.20 <time>&mdash; July 29, 2026</time></h3>
+            <ul>
+                <li>PlotIt now remembers recently opened files, and reopens to the folder
+                    and file type you last used.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.19 <time>&mdash; July 28, 2026</time></h3>
+            <ul>
+                <li>Added on-plot markers for NaN and infinite values, with a toggle to hide
+                    them.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.18 <time>&mdash; July 28, 2026</time></h3>
+            <ul>
+                <li>Refreshed the plot toolbar icons.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.17 <time>&mdash; July 27, 2026</time></h3>
+            <ul>
+                <li>Added a legend visibility toggle.</li>
+                <li>Much faster rendering on large files.</li>
+                <li>Fixed numerous crashes on files containing NaN, infinity, or extreme
+                    values.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.16 <time>&mdash; July 11, 2026</time></h3>
+            <ul>
+                <li>Added Overlay, Stacked, and Stacked-by-Unit plot layouts.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.15 <time>&mdash; July 9, 2026</time></h3>
+            <ul>
+                <li>Added a second Y-axis for channels on very different scales.</li>
+                <li>Various histogram and cursor fixes.</li>
+            </ul>
+        </div>
+
+        <div class="release">
+            <h3>0.14 and earlier <time>&mdash; June 24, 2026 and before</time></h3>
+            <ul>
+                <li>Initial format support (RPC3, PLT, fstrm, CSV) and stability work.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p><a href="license.html">MIT License</a> &middot; Copyright &copy; 2025 Mark Brudnak</p>
+        <p><a href="https://gitlab.com/ArchWoodCode/win32app">Source on GitLab</a></p>
+    </footer>
+
+</body>
+</html>
