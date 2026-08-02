@@ -1,9 +1,9 @@
 :root {
     --ink: #1a1a1a;
     --muted: #5a5a5a;
-    --bg: #ffffff;
-    --bg-alt: #f6f7f9;
-    --border: #e2e4e8;
+    --bg: #faf9f6;
+    --bg-alt: #f0efe8;
+    --border: #ddd9d0;
     --accent: #000099;
     --accent-dark: #000070;
     --maroon: #880015;
@@ -193,6 +193,13 @@ section {
     font-size: 0.9rem;
     color: var(--muted);
     text-align: center;
+}
+
+.screenshot-footnote {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 24px;
 }
 
 .brand h1 a {
