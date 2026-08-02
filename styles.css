@@ -202,6 +202,37 @@ section {
     margin-top: 28px;
 }
 
+#about {
+    max-width: 720px;
+}
+
+.gift-note {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background-color: var(--bg-alt);
+    border-left: 3px solid var(--maroon);
+    border-radius: 0 8px 8px 0;
+}
+
+.gift-note h3 {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--maroon);
+}
+
+.gift-note p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 12px;
+}
+
+.gift-note p:last-child {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
 #download {
     text-align: center;
 }
