@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Data — PlotIt</title>
+    <meta name="description" content="Python scripts that generate synthetic RPC3, CSV, fstrm, and PLT time-history files for trying out PlotIt.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="images/favicon.png" alt="">
+            <h1><a href="index.html">PlotIt</a></h1>
+        </div>
+        <nav>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#screenshots">Screenshots</a>
+            <a href="index.html#about">About</a>
+            <a href="changelog.html">Changelog</a>
+            <a href="releases.html">Releases</a>
+            <a href="sample-data.html">Sample Data</a>
+            <a href="index.html#download">Download</a>
+        </nav>
+    </header>
+
+    <section id="sample-data">
+        <h2>Sample Data</h2>
+        <p class="changelog-intro">Python scripts that generate synthetic time-history files in
+           every format PlotIt reads &mdash; RPC3, CSV, fstrm, and PLT. All data is entirely
+           synthetic, no recorded or proprietary data of any kind.</p>
+
+        <p style="text-align: center;">
+            <a href="downloads/sample-data-generators.zip" class="btn" download>Download the generators (.zip, 20&nbsp;KB)</a>
+        </p>
+        <p class="download-sub" style="text-align: center;">
+            Requires Python 3.9+ and <a href="https://numpy.org/">NumPy</a>
+            (<code>pip install numpy</code>). Unzip, then run any script directly &mdash;
+            see the included README for details.
+        </p>
+
+        <div class="release-row">
+            <div class="release-row-info">
+                <h3>gen_automotive_csv.py</h3>
+                <p>CSV &middot; 10 s @ 100 Hz &middot; six proving-ground maneuvers (launch,
+                   braking, constant-speed cruise, hilly terrain, double lane change, rough
+                   road) sharing one 21-channel schema.</p>
+            </div>
+        </div>
+
+        <div class="release-row">
+            <div class="release-row-info">
+                <h3>gen_shaker_rig.py</h3>
+                <p>fstrm &middot; 14 s @ 512 Hz &middot; a 4-post durability shaker rig
+                   replaying a rough-road profile, with the resulting seat/floor/dash
+                   accelerations and actuator load-cell force.</p>
+            </div>
+        </div>
+
+        <div class="release-row">
+            <div class="release-row-info">
+                <h3>gen_hev_powertrain.py</h3>
+                <p>PLT + .hdr &middot; 16 s @ 100 Hz &middot; a hybrid-electric powertrain
+                   simulation: standing start, WOT launch, a short cruise, then a
+                   regenerative-braking coast-down.</p>
+            </div>
+        </div>
+
+        <div class="release-row">
+            <div class="release-row-info">
+                <h3>gen_road_load_demo.py</h3>
+                <p>RPC3 (.tim) &middot; ~15 s @ 1 kHz &middot; a short durability road-load
+                   snippet &mdash; accelerate, cruise onto a rough patch, brake to a stop.</p>
+            </div>
+        </div>
+
+        <div class="release-row">
+            <div class="release-row-info">
+                <h3>gen_perf_road_load.py</h3>
+                <p>RPC3 (.tim) &middot; ~4 h 10 min @ 1 kHz &middot; a large (~600&nbsp;MB,
+                   15M-point) durability road-load file for performance testing PlotIt at
+                   scale, not for a quick look.</p>
+            </div>
+        </div>
+
+        <p class="download-sub">
+            Prefer to read the code first? Browse the
+            <a href="https://gitlab.com/ArchWoodCode/win32app/-/tree/master/sample_data_generators">sample_data_generators</a>
+            directory on GitLab.
+        </p>
+    </section>
+
+    <footer>
+        <p><a href="license.html">MIT License</a> &middot; Copyright &copy; 2025 Mark Brudnak</p>
+        <p><a href="https://gitlab.com/ArchWoodCode/win32app">Source on GitLab</a></p>
+    </footer>
+
+</body>
+</html>
