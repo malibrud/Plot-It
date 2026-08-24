@@ -22,6 +22,18 @@ body {
     line-height: 1.6;
 }
 
+a {
+    color: var(--accent-dark);
+}
+
+a:visited {
+    color: var(--accent-dark);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
 header {
     background-color: var(--bg);
     padding: 20px 24px;
