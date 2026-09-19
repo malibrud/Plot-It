@@ -172,6 +172,27 @@ section {
     font-size: 1.05rem;
 }
 
+.feature-card h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.feature-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.features-more {
+    text-align: center;
+    margin: 32px 0 0;
+}
+
 .feature-card p {
     margin: 0;
     color: var(--muted);
@@ -376,6 +397,294 @@ footer {
 
 footer a {
     color: var(--muted);
+}
+
+/* ---------- Features page ---------- */
+
+#overview {
+    max-width: 1100px;
+    padding-bottom: 24px;
+}
+
+#overview > h2 {
+    margin-top: 0;
+}
+
+.overview-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 28px;
+}
+
+.overview-shot {
+    margin: 0;
+}
+
+.hotspot-frame {
+    position: relative;
+}
+
+.hotspot-frame img {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--maroon);
+    color: white !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85), 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hotspot:hover, .hotspot:focus-visible {
+    background-color: var(--accent);
+}
+
+.overview-key {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 28px;
+    margin: 20px 0 0;
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.features-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 56px;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.chapter-nav {
+    float: none;
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+    border-left: 2px solid var(--border);
+}
+
+.chapter-nav a {
+    margin: 0 0 0 -2px;
+    padding: 6px 0 6px 14px;
+    border-left: 2px solid transparent;
+}
+
+.chapter-nav a.active {
+    color: var(--ink);
+    border-left-color: var(--maroon);
+}
+
+.chapters {
+    min-width: 0;
+}
+
+.chapter {
+    max-width: none;
+    padding: 24px 0;
+}
+
+.chapter > h2 {
+    text-align: left;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.chapter, .feature-row, #overview {
+    scroll-margin-top: 90px;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.feature-row:last-child {
+    border-bottom: none;
+}
+
+.feature-row:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.feature-row figure {
+    flex: 0 0 55%;
+    margin: 0;
+}
+
+.feature-row figure img, .feature-row figure video {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--bg-alt);
+}
+
+.feature-row .figure-tall {
+    text-align: center;
+}
+
+.feature-row .figure-tall img {
+    width: auto;
+    max-width: 100%;
+    max-height: 560px;
+    display: inline-block;
+}
+
+.feature-row figure a {
+    display: block;
+}
+
+.feature-row figure a:hover img {
+    border-color: var(--accent);
+}
+
+.exe-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 14px 18px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--bg-alt);
+}
+
+.exe-card > img {
+    width: 56px;
+    height: 56px;
+}
+
+.exe-name {
+    font-family: "Cascadia Mono", "Consolas", monospace;
+    font-size: 1.15rem;
+    color: var(--ink);
+}
+
+.exe-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.exe-facts {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--border);
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    color: var(--ink);
+    font-size: 0.92rem;
+}
+
+.exe-facts li::before {
+    content: "\2713";
+    color: var(--maroon);
+    margin-right: 6px;
+}
+
+.shot-placeholder {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border: 2px dashed var(--border);
+    border-radius: 6px;
+    background-color: var(--bg-alt);
+}
+
+.feature-text h3 {
+    margin: 0 0 8px;
+    color: var(--maroon);
+    font-size: 1.15rem;
+}
+
+.feature-text p {
+    margin: 0 0 10px;
+    font-size: 0.97rem;
+}
+
+.feature-text p.how {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.feature-text code {
+    font-family: "Cascadia Mono", "Consolas", monospace;
+    font-size: 0.85em;
+    background-color: var(--bg-alt);
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+
+@media (max-width: 860px) {
+    .features-layout {
+        display: block;
+        padding: 0 16px 40px;
+    }
+
+    .chapter-nav {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        border-left: none;
+        padding: 4px 0 12px;
+    }
+
+    .chapter-nav a {
+        flex-shrink: 0;
+        margin: 0;
+        padding: 4px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+    }
+
+    .chapter-nav a.active {
+        border-color: var(--maroon);
+    }
+
+    .feature-row, .feature-row:nth-of-type(even) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .hotspot {
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 720px) {

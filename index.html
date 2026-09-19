@@ -15,7 +15,7 @@
             <h1>EnginPlot</h1>
         </div>
         <nav>
-            <a href="#features">Features</a>
+            <a href="features.html">Features</a>
             <a href="#screenshots">Screenshots</a>
             <a href="#about">About</a>
             <a href="changelog.html">Changelog</a>
@@ -32,93 +32,58 @@
         <p class="hero-tag">Designed by an engineer, for engineers.</p>
 
         <div class="video-embed hero-image">
-            <img src="images/ScreenShot_TPH.png" alt="EnginPlot showing twenty channels of automotive hilly-terrain data — a time-history plot above a power-spectral-density plot, with channel thumbnails on the left and a histogram panel on the right">
+            <img src="images/features/overview.png" alt="EnginPlot showing twenty channels of automotive hilly-terrain data — a time-history plot above a power-spectral-density plot, with channel thumbnails on the left and a histogram panel on the right">
         </div>
     </section>
 
     <section id="features">
         <h2>Features</h2>
+        <p class="section-intro">The headlines. Every feature, with a screenshot of each, is on
+           the <a href="features.html">features page</a>.</p>
         <div class="feature-grid">
             <div class="feature-card">
-                <h3>Reads what you already have</h3>
-                <p>RPC3, PLT/SimCreator, fstrm/Moog Stream, and CSV &mdash; with automatic
-                   header and unit detection.</p>
+                <h3><a href="features.html#formats">Reads what you already have</a></h3>
+                <p>RPC3, PLT/SimCreator, fstrm/Moog Stream, CSV and space-separated text, with header, unit and date-time detection &mdash; and a CSV reader that opens files other tools refuse.</p>
             </div>
             <div class="feature-card">
-                <h3>Time, frequency, and histogram views</h3>
-                <p>Time-domain, PSD, and CSD plots &mdash; including CSD Matrix and CSD
-                   Overlaid modes &mdash; plus per-channel histograms.</p>
+                <h3><a href="features.html#spectra">Time, frequency and histogram views</a></h3>
+                <p>Time histories, PSD, cross-spectra as a matrix or overlaid, and per-channel histograms, all computed in the background so switching views is instant.</p>
             </div>
             <div class="feature-card">
-                <h3>CSD phase wrap control</h3>
-                <p>Unwrap the phase, or choose a wrap range &mdash; &plusmn;180&deg;,
-                   0&ndash;360&deg;, 0&ndash;720&deg;, and more &mdash; on cross-spectral
-                   density plots.</p>
+                <h3><a href="features.html#dual-axis">Layouts that fit the data</a></h3>
+                <p>Overlay, stack one per row, or group rows by engineering unit &mdash; with a second Y-axis placed automatically when channels span very different ranges.</p>
             </div>
             <div class="feature-card">
-                <h3>Layouts that fit the data</h3>
-                <p>Overlay every channel, stack them one per row, or group rows by
-                   engineering unit.</p>
+                <h3><a href="features.html#quality">Data quality at a glance</a></h3>
+                <p>NaNs, infinities, impossibly large values, subnormals and dead channels are flagged in the channel list &mdash; and plotted on a dedicated rail instead of wrecking the scale.</p>
             </div>
             <div class="feature-card">
-                <h3>Automatic dual Y-axis</h3>
-                <p>Channels spanning very different scales split cleanly onto a second,
-                   right-hand axis &mdash; no manual setup.</p>
+                <h3><a href="features.html#cursor">Cursor readout, with harmonics</a></h3>
+                <p>Read values off either axis under the pointer. On a frequency plot the cursor lands a labelled line on every harmonic of the peak you point at.</p>
             </div>
             <div class="feature-card">
-                <h3>Zoom exactly where you point</h3>
-                <p>Rectangle-zoom by dragging, middle-drag to pan, scroll to zoom, or
-                   double-click a point to zoom straight to it &mdash; left-click zooms up
-                   to that point, right-click zooms in from it.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Data-quality at a glance</h3>
-                <p>NaNs, infinities, subnormals, and dead channels are flagged directly in
-                   the channel list, with a tooltip breakdown on hover.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Channel statistics on hover</h3>
-                <p>Sample count, min/max range, and data-quality flags for every channel,
-                   right in the file tree.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Thumbnail previews</h3>
-                <p>Every channel gets a small preview plot in the file tree, so you can see
-                   the shape of the data before you even select it.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Interactive legend</h3>
-                <p>Hover a series to highlight its trace, right-click to remove it from the
-                   plot, left-click to bring it to the front.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Built for scale</h3>
-                <p>Smooth zoom, pan, and redraw &mdash; no noticeable latency at 150 million
-                   plotted points.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Zero install</h3>
-                <p>A single self-contained .exe under 1.2&nbsp;MB. No installer, no
-                   dependencies, no companion DLLs.</p>
+                <h3><a href="features.html#big-data">Built for scale, zero install</a></h3>
+                <p>Smooth at 150 million plotted points, from a single self-contained 1.2&nbsp;MB .exe. No installer, no dependencies, no companion DLLs.</p>
             </div>
         </div>
+        <p class="features-more"><a href="features.html" class="btn">See all features</a></p>
     </section>
 
     <section id="screenshots">
         <h2>Screenshots<sup>*</sup></h2>
         <div class="screenshot-grid">
             <figure>
-                <img src="images/stacked-by-unit.png" alt="Twenty channels of synthetic automotive field-test data, stacked by engineering unit">
+                <img src="images/features/layouts.png" alt="Ten channels of synthetic automotive field-test data, stacked by engineering unit">
                 <figcaption>Stacked-by-unit layout &mdash; one row per engineering unit,
                     each with its own scale.</figcaption>
             </figure>
             <figure>
-                <img src="images/quality-indicators.png" alt="File tree showing red NaN, infinity, and subnormal indicators on channel thumbnails">
-                <figcaption>Data-quality indicators &mdash; NaNs, infinities, and subnormal
-                    values flagged directly on each channel.</figcaption>
+                <img src="images/features/quality.png" alt="File tree showing red NaN, infinity, large-value and subnormal indicators on channel thumbnails">
+                <figcaption>Data-quality indicators &mdash; NaNs, infinities, large and
+                    subnormal values flagged directly on each channel.</figcaption>
             </figure>
             <figure>
-                <img src="images/dual-axis.png" alt="Wheel displacement and engine speed channels automatically split across a dual Y-axis">
+                <img src="images/features/dual-axis.png" alt="Engine speed and wheel displacement automatically split across a dual Y-axis">
                 <figcaption>Automatic dual Y-axis &mdash; wildly different scales, one
                     readable plot.</figcaption>
             </figure>

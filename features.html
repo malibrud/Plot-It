@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — EnginPlot</title>
+    <meta name="description" content="Everything EnginPlot does, feature by feature: the file formats it reads, how it plots, the spectral and histogram views, data-quality checks, navigation, and performance.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="images/favicon.png" alt="">
+            <h1><a href="index.html">EnginPlot</a></h1>
+        </div>
+        <nav>
+            <a href="features.html">Features</a>
+            <a href="index.html#screenshots">Screenshots</a>
+            <a href="index.html#about">About</a>
+            <a href="changelog.html">Changelog</a>
+            <a href="releases.html">Releases</a>
+            <a href="sample-data.html">Sample Data</a>
+            <a href="index.html#download">Download</a>
+        </nav>
+    </header>
+
+    <section id="overview">
+        <h2>Features</h2>
+        <p class="overview-intro">A tour of everything EnginPlot does. Click a number on the
+           screenshot to jump to that feature, or use the chapter list to browse.</p>
+
+        <figure class="overview-shot">
+            <div class="hotspot-frame">
+                <img src="images/features/overview.png" alt="The EnginPlot window with ten channels of synthetic road-load data: channel thumbnails on the left, a time-history plot with two Y-axes at the top, a PSD plot below it, and a histogram and legend on the right">
+                <a class="hotspot" href="#details-pane" style="left: 21%; top: 11.5%;" aria-label="1: file details">1</a>
+                <a class="hotspot" href="#unit-filter" style="left: 9.5%; top: 13.6%;" aria-label="2: select by unit">2</a>
+                <a class="hotspot" href="#thumbnails" style="left: 9.5%; top: 31%;" aria-label="3: channel thumbnails">3</a>
+                <a class="hotspot" href="#dual-axis" style="left: 82.5%; top: 22%;" aria-label="4: automatic dual Y-axis">4</a>
+                <a class="hotspot" href="#histograms" style="left: 91%; top: 32%;" aria-label="5: histogram">5</a>
+                <a class="hotspot" href="#legend" style="left: 90.5%; top: 60%;" aria-label="6: interactive legend">6</a>
+                <a class="hotspot" href="#spectra" style="left: 54%; top: 75%;" aria-label="7: power spectral density">7</a>
+            </div>
+        </figure>
+        <ol class="overview-key">
+            <li><a href="#details-pane">File details</a></li>
+            <li><a href="#unit-filter">Select by unit</a></li>
+            <li><a href="#thumbnails">Channel thumbnails</a></li>
+            <li><a href="#dual-axis">Automatic dual Y-axis</a></li>
+            <li><a href="#histograms">Histogram</a></li>
+            <li><a href="#legend">Interactive legend</a></li>
+            <li><a href="#spectra">Power spectral density</a></li>
+        </ol>
+    </section>
+
+    <div class="features-layout">
+        <nav class="chapter-nav" aria-label="Feature chapters">
+            <a href="#load">Load</a>
+            <a href="#view">View</a>
+            <a href="#analyze">Analyze</a>
+            <a href="#inspect">Inspect</a>
+            <a href="#navigate">Navigate</a>
+            <a href="#scale">Scale &amp; deploy</a>
+        </nav>
+
+        <div class="chapters">
+
+            <!-- ===================== LOAD ===================== -->
+            <section id="load" class="chapter">
+                <h2>Load</h2>
+
+                <article class="feature-row" id="formats">
+                    <figure><a href="images/features/formats.png"><img src="images/features/formats.png" alt="Four files open at once, one each of RPC3, PLT, fstrm and CSV, with one channel from each stacked in the plot" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Reads what you already have</h3>
+                        <p>RPC3, PLT/SimCreator, fstrm/Moog Stream, CSV and space-separated
+                           text. Channel names and units are detected automatically, including
+                           units written inline as <code>Name [unit]</code> or
+                           <code>Name (unit)</code>.</p>
+                        <p class="how">How: File &rarr; Open (which also lists recent files), or pass
+                           one or more paths on the command line.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="lenient-csv">
+                    <figure><a href="images/features/lenient-csv.png"><img src="images/features/lenient-csv.png" alt="A German-language export with semicolons, decimal commas and a metadata preamble, opened with its three channels stacked and a Warnings row listing the skipped column and unreadable cells" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Opens untidy CSV files</h3>
+                        <p>The reader works out its own delimiter and decimal separator, so a
+                           European export like <code>1,5;2,5</code> reads correctly. It
+                           handles quoted fields, skips instrument metadata above the header,
+                           and reads UTF-8, UTF-16 and BOM-prefixed files.</p>
+                        <p>A cell it can&rsquo;t read (<code>N/A</code>, a dash, a blank)
+                           becomes a gap in that channel instead of failing the whole file.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="timestamps">
+                    <figure><a href="images/features/timestamps.png"><img src="images/features/timestamps.png" alt="A CSV whose time column holds ISO date-time stamps, plotted in seconds, with the details pane showing the recording date and start time" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Reads date-time stamps</h3>
+                        <p>A time column written as <code>2026-08-30T14:03:07.250</code>,
+                           <code>08/30/2026 2:03:07 PM</code>, <code>30.08.2026 14:03:07</code>,
+                           a date and time in two columns, or a bare time of day that wraps
+                           past midnight all work. Day-first versus month-first is decided from
+                           the whole column, not guessed row by row.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="background-load">
+                    <figure class="figure-tall"><a href="images/features/background-load.png"><img src="images/features/background-load.png" alt="The plot area while a 600 MB file loads: a progress bar with the file name and a Cancel (Esc) button" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Large files load without freezing</h3>
+                        <p>A progress bar with the file name and a Cancel button appears in the
+                           plot area while a file loads in the background. The rest of the
+                           window stays usable, so you can keep working with files that are
+                           already open.</p>
+                        <p class="how">How: press Esc or click Cancel to abandon a load.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="details-pane">
+                    <figure class="figure-tall"><a href="images/features/details-pane.png"><img src="images/features/details-pane.png" alt="The expanded file details pane: channels, samples, duration, time step, sample rate, frame and FFT size, Nyquist, frequency step, quality and date" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>File details, including what was worked around</h3>
+                        <p>Every file shows its channel count, samples, duration, time step,
+                           sample rate, FFT settings and recorded date. A <strong>Time</strong>
+                           row says what the time column did, and a <strong>Warnings</strong>
+                           row lists anything the reader had to work around, so a file that
+                           loads leniently never loads silently.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="close-file">
+                    <figure class="figure-tall"><a href="images/features/close-file.png"><img src="images/features/close-file.png" alt="The header row of an open file, with its close button circled" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Close one file, keep the rest</h3>
+                        <p>Each open file&rsquo;s row in the tree has a close button. Closing
+                           removes its channels from the plot and leaves everything else
+                           selected.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ===================== VIEW ===================== -->
+            <section id="view" class="chapter">
+                <h2>View</h2>
+
+                <article class="feature-row" id="layouts">
+                    <figure><a href="images/features/layouts.png"><img src="images/features/layouts.png" alt="Ten channels in four units stacked by unit: g, deg/s, m/s^2 and km/h each get their own row and scale" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Layouts that fit the data</h3>
+                        <p>Overlay every channel on one plot, stack them one per row, or group
+                           rows by engineering unit so each unit gets its own scale.</p>
+                        <p class="how">How: Layout &rarr; Overlaid, Stacked, or Stacked by Unit.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="dual-axis">
+                    <figure><a href="images/features/dual-axis.png"><img src="images/features/dual-axis.png" alt="Engine speed in rpm on the left axis and wheel displacement in mm on the right, placed automatically" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Automatic dual Y-axis</h3>
+                        <p>When channels span very different ranges, the large ones move to a
+                           second, right-hand axis so the small ones stay readable. There is
+                           nothing to set up.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="event-time">
+                    <figure><a href="images/features/event-time.png"><img src="images/features/event-time.png" alt="A CAN-style event log with bursts of messages separated by quiet gaps, each channel drawn at its own timestamps" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Event data at its real timestamps</h3>
+                        <p>Files that aren&rsquo;t sampled on a clock (CAN bus traffic,
+                           network messages, variable-step solvers) plot each sample at its
+                           own timestamp. Bursts and idle gaps show up where they really are
+                           and for as long as they really lasted.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ===================== ANALYZE ===================== -->
+            <section id="analyze" class="chapter">
+                <h2>Analyze</h2>
+
+                <article class="feature-row" id="spectra">
+                    <figure><a href="images/features/spectra.png"><img src="images/features/spectra.png" alt="Three accelerometer channels shown as time histories above their power spectral densities" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Time, frequency and histogram views</h3>
+                        <p>View time histories, power spectral density, or both together, with
+                           or without a histogram panel alongside.</p>
+                        <p class="how">How: Plots &rarr; Time, PSD, Time / PSD, or
+                           Time / PSD / Histogram.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="csd">
+                    <figure><a href="images/features/csd.png"><img src="images/features/csd.png" alt="A three-by-three cross-spectral density matrix, each cell showing magnitude above phase wrapped to plus or minus 180 degrees" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Cross-spectra with phase wrap control</h3>
+                        <p>Show cross-spectral density as a matrix of every channel pair, or
+                           overlaid on one plot. Phase can be unwrapped or wrapped to
+                           &plusmn;180&deg;, 0 to 360&deg;, &plusmn;360&deg;, 0 to 720&deg;
+                           and more.</p>
+                        <p class="how">How: Plots &rarr; CSD Matrix or CSD Overlaid; Wrap menu
+                           for the phase range.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="histograms">
+                    <figure><a href="images/features/histograms.png"><img src="images/features/histograms.png" alt="Ten channels in a time-history plot beside their histograms" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Histograms that measure time</h3>
+                        <p>Per-channel histograms show how much of the record each channel
+                           spent in each band. For event data, each sample counts for the time
+                           it covered rather than counting once, so busy bursts don&rsquo;t
+                           drown out long quiet stretches.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="event-spectra">
+                    <figure><a href="images/features/event-spectra.png"><img src="images/features/event-spectra.png" alt="Time history and PSD of an event log; the frequency axis reaches 100 Hz, the rate inside the bursts" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Meaningful spectra from event data</h3>
+                        <p>Unevenly sampled records are interpolated onto a uniform grid built
+                           from their own timestamps before the transform, with idle gaps left
+                           empty rather than filled in. The frequency axis reflects the rate
+                           the data really has.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="background-compute">
+                    <figure><a href="images/features/background-compute.png"><img src="images/features/background-compute.png" alt="A cross-spectral matrix partway through computing: some cells drawn, others marked Computing, and a Computing 12 of 75 counter at the bottom left" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Spectra computed in the background</h3>
+                        <p>Spectra, cross-spectra and histograms are computed on background
+                           threads as soon as a file loads, so switching views is usually
+                           instant. Cells still being computed say so, and panning, zooming
+                           and selecting keep working while they fill in.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ===================== INSPECT ===================== -->
+            <section id="inspect" class="chapter">
+                <h2>Inspect</h2>
+
+                <article class="feature-row" id="thumbnails">
+                    <figure class="figure-tall"><a href="images/features/thumbnails.png"><img src="images/features/thumbnails.png" alt="The file tree with a small preview plot beside every channel" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Thumbnail previews</h3>
+                        <p>Every channel gets a small preview plot in the file tree, so you can
+                           see the shape of the data before you select it.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="unit-filter">
+                    <figure><a href="images/features/unit-filter.png"><img src="images/features/unit-filter.png" alt="The m/s^2 unit button pressed, selecting the three acceleration channels, which appear in the plot" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Select channels by unit</h3>
+                        <p>A row of buttons above each file&rsquo;s channels selects all of
+                           them, clears the selection, or picks every channel with a given
+                           unit in one click.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="hover-stats">
+                    <figure class="figure-tall"><a href="images/features/hover-stats.png"><img src="images/features/hover-stats.png" alt="A tooltip over the Engine Speed channel showing its sample count and range" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Channel statistics on hover</h3>
+                        <p>Hover a channel in the file tree to see its sample count, min/max
+                           range and data-quality flags.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="nonfinite-rail">
+                    <figure><a href="images/features/nonfinite-rail.png"><img src="images/features/nonfinite-rail.png" alt="A time plot with a +Inf line under the top edge, a -Inf line along the bottom and a NaN row above it, each carrying coloured marks where a channel has those samples" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>NaNs and infinities get their own rail</h3>
+                        <p>Values a Y-axis cannot show are not dropped and do not wreck the
+                           scale. Each plot reserves a <strong>+Inf</strong> line under its top
+                           edge, a <strong>&minus;Inf</strong> line along the bottom and a
+                           <strong>NaN</strong> row just above it. Every affected channel marks
+                           the rail in its own colour, at the time it happened, so you can see
+                           which channel went bad and when while the finite data keeps the full
+                           height of the plot.</p>
+                        <p>The rails are per axis, so a dual-axis plot annotates left and right
+                           separately, and they only report what is in the window you are
+                           looking at.</p>
+                        <p class="how">How: Plots &rarr; Show Non-Finite Values toggles it.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="quality">
+                    <figure class="figure-tall"><a href="images/features/quality.png"><img src="images/features/quality.png" alt="Channel thumbnails marked N for NaN, an infinity sign, S for subnormal and L for huge values, with a tooltip breaking down one channel: 1,024 large and 1,024 subnormal samples" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Data quality at a glance</h3>
+                        <p>Every channel is checked as it loads, and what it fails is drawn as
+                           a letter beside its thumbnail: <strong>N</strong> for NaNs,
+                           <strong>&infin;</strong> for infinities, <strong>L</strong> for
+                           values too large to have come from a real transducer (above
+                           1e12), <strong>S</strong> for subnormals &mdash; numbers so close to
+                           zero that they have lost precision &mdash; and a flag for a dead
+                           channel that never changes value.</p>
+                        <p>Hovering gives the breakdown: how many samples each check caught and
+                           what fraction of the channel that is. The file row totals it up, so
+                           a file says &ldquo;18 red&rdquo; before you open a single channel.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="legend">
+                    <figure><a href="images/features/legend.png"><img src="images/features/legend.png" alt="Hovering one legend entry: the Body Vertical Acceleration trace stays bold while the other nine traces fade" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Interactive legend</h3>
+                        <p>Hover a series to highlight its trace, left-click to bring it to the
+                           front, right-click to remove it from the plot.</p>
+                        <p class="how">How: Plots &rarr; Show Legend toggles it.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ===================== NAVIGATE ===================== -->
+            <section id="navigate" class="chapter">
+                <h2>Navigate</h2>
+
+                <article class="feature-row" id="zoom">
+                    <figure><a href="images/features/zoom.png"><img src="images/features/zoom.png" alt="Before and after a rectangle zoom: a highlighted band from about 9 to 13 seconds on the full record, and the same band filling the plot" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Zoom exactly where you point</h3>
+                        <p>Drag a rectangle to zoom, middle-drag to pan, or use the scroll
+                           wheel. Double-click a point to zoom straight to it:
+                           left-click zooms up to that point, right-click zooms in from it.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="cursor">
+                    <figure><a href="images/features/cursor.png"><img src="images/features/cursor.png" alt="A PSD with a readout line at 171.493 and vertical cursor lines at 44.09 Hz and every multiple of it up to 485 Hz, each labelled" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Cursor readout, with harmonics</h3>
+                        <p>Move the pointer over a plot and it reads out the value under it on
+                           both axes, labelled in engineering units.</p>
+                        <p>On a frequency plot the cursor also marks the harmonics: place it on
+                           a peak and a labelled line lands on every integer multiple of that
+                           frequency, so you can tell at a glance whether the rest of the
+                           spectrum is a harmonic family or something unrelated. Lines that
+                           would crowd together are left out rather than drawn as a smear.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ===================== SCALE & DEPLOY ===================== -->
+            <section id="scale" class="chapter">
+                <h2>Scale &amp; deploy</h2>
+
+                <article class="feature-row" id="big-data">
+                    <figure><a href="images/features/big-data.png"><img src="images/features/big-data.png" alt="150 million points: ten channels of fifteen million samples each, stacked one per row" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Built for scale</h3>
+                        <p>Zoom, pan and redraw stay smooth at 150 million plotted points. A
+                           600&nbsp;MB, ten-channel fstrm recording loads in about half a
+                           second. Shown: ten channels of fifteen million samples each.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="zero-install">
+                    <figure>
+                        <div class="exe-card" role="img" aria-label="EnginPlot.exe: one signed file, about 1.2 MB, no installer, no DLLs">
+                            <img src="images/favicon.png" alt="">
+                            <div>
+                                <div class="exe-name">EnginPlot.exe</div>
+                                <div class="exe-meta">1.2&nbsp;MB &middot; signed &middot; Windows&nbsp;10+</div>
+                            </div>
+                            <ul class="exe-facts">
+                                <li>No installer</li>
+                                <li>No DLLs beside it</li>
+                                <li>No runtime to install</li>
+                            </ul>
+                        </div>
+                    </figure>
+                    <div class="feature-text">
+                        <h3>Zero install</h3>
+                        <p>One self-contained, signed .exe of about 1.2&nbsp;MB. No installer,
+                           no dependencies, no companion DLLs. Runs on Windows&nbsp;10 and
+                           later.</p>
+                        <p>It remembers its window position, size and splitter between runs
+                           in a small settings file under <code>%APPDATA%\EnginPlot</code>.</p>
+                    </div>
+                </article>
+            </section>
+
+            <p class="screenshot-footnote">All screenshots use synthetic data.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p><a href="license.html">MIT License</a> &middot; Copyright &copy; 2026 Mark Brudnak &middot;
+           <a href="mailto:contact@enginplot.net">Contact</a></p>
+    </footer>
+
+    <script>
+        // Highlight the chapter currently in view. The page works without this.
+        (function () {
+            if (!("IntersectionObserver" in window)) return;
+            var links = document.querySelectorAll(".chapter-nav a");
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    links.forEach(function (link) {
+                        link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+                    });
+                });
+            }, { rootMargin: "-30% 0px -60% 0px" });
+            document.querySelectorAll(".chapter").forEach(function (c) { observer.observe(c); });
+        })();
+    </script>
+</body>
+</html>
