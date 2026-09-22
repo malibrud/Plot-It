@@ -27,6 +27,64 @@
     <section id="changelog">
         <h2>Changelog</h2>
 
+        <div class="release" id="v0-28">
+            <h3>0.28 <time>&mdash; September 22, 2026</time></h3>
+            <ul>
+                <li>Opening a file no longer freezes the window. A progress bar with the
+                    file's name and a Cancel button appears in the plot area, and moving,
+                    resizing and working with already-open files all keep working while a
+                    large file loads.</li>
+                <li>Spectra, cross-spectra and histograms are computed in the background,
+                    and are worked out for every channel as soon as a file finishes
+                    loading. Switching to a PSD, CSD or histogram view is usually instant
+                    as a result, where a ten-channel recording used to lock the window for
+                    a minute or more.</li>
+                <li>Each open file's row in the tree has a close button. Closing a file
+                    drops its plotted channels and renumbers the files after it; nothing
+                    else needs re-selecting.</li>
+                <li>The window's position, size and maximized state are remembered between
+                    runs, along with the splitter between the file tree and the plots.</li>
+                <li>Files can be dropped onto the window from Explorer, one or many at
+                    once.</li>
+                <li>Spectra can be read in decibels &mdash; <strong>Plots &rarr; Spectra in
+                    Decibels</strong>, or the <strong>dB</strong> button. It covers the PSD,
+                    the CSD magnitude rows and the spectrum pane of the combined views, and
+                    the choice is remembered between sessions.</li>
+                <li>CSV files no longer have to be tidy to open. The reader works out its
+                    own delimiter and decimal separator, so a European export written as
+                    <code>1,5;2,5</code> reads correctly; it handles quoted fields, skips a
+                    block of instrument metadata above the header, sets text columns aside
+                    and fills cells it cannot read with NaN instead of refusing the file.
+                    Space-separated text files open too.</li>
+                <li>Date and time stamps in a CSV are recognized: the plot starts at zero on
+                    the first stamp, and the recording's absolute start time appears in the
+                    file's details.</li>
+                <li>SimCreator <code>.plt</code>, RPC3 and fstrm files that are not exactly
+                    to spec now open instead of being turned away &mdash; other writers'
+                    header spellings and padding, mixed separators, comments and blank
+                    lines, multi-rate rows. Short rows are padded with NaN, long rows cut to
+                    the header's width, and whatever the reader had to fix is listed under
+                    the file's details.</li>
+                <li>Recordings sampled at uneven intervals &mdash; event logs, CAN bus
+                    traces &mdash; are drawn at the times their samples were actually taken,
+                    in the plot and in the file tree's thumbnails alike. Their spectra are
+                    computed against a real time grid, and their histograms weight each
+                    sample by the time it stood for, so the shape describes the signal
+                    rather than the logger's activity.</li>
+                <li>A corrupt or truncated file can no longer take the application down,
+                    and a damaged file is reported in plain words &mdash; the line number
+                    and what was missing &mdash; rather than as an internal error.</li>
+                <li>Stepping through channels with the toolbar's Increment and Decrement
+                    buttons now scrolls the file tree to keep the plotted channel in
+                    view.</li>
+                <li>Files load faster: about 16% for CSV and about 27% for SimCreator
+                    <code>.plt</code>. Zoomed plots redraw faster as well.</li>
+                <li>The same program is available as <strong>PlotIt.exe</strong> for anyone
+                    who knew it under its earlier name. It keeps its own settings, so an
+                    existing PlotIt setup carries over untouched.</li>
+            </ul>
+        </div>
+
         <div class="release" id="v0-27">
             <h3>0.27 <time>&mdash; August 3, 2026</time></h3>
             <ul>
