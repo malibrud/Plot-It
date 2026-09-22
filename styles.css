@@ -242,6 +242,31 @@ section {
     flex-shrink: 0;
 }
 
+.releases-intro {
+    color: var(--muted);
+    margin: 0 0 8px;
+}
+
+.release-row-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.release-alt {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+}
+
+.release-alt:hover {
+    color: var(--accent);
+}
+
 .license-text {
     margin-top: 24px;
     padding: 24px 28px;
@@ -321,6 +346,16 @@ section {
 
 #download {
     text-align: center;
+}
+
+.download-alt {
+    margin-top: 2px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.download-alt a {
+    color: var(--accent);
 }
 
 .download-sub {
