@@ -192,6 +192,25 @@
                     </div>
                 </article>
 
+                <article class="feature-row" id="spectra-db">
+                    <figure><a href="images/features/spectra-db.png"><img src="images/features/spectra-db.png" alt="The three accelerometer spectra from the previous figure, now on a linear axis labelled dB, running from about +10 dB down to -60 dB, with the legend entries marked dB" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Spectra in engineering units or decibels</h3>
+                        <p>The same three channels as above, now in dB. One switch moves every
+                           spectrum between engineering units and decibels: PSD plots, the PSD
+                           pane of the combined views, CSD overlaid and the magnitude rows of
+                           the CSD matrix. Axis labels, the legend and the cursor readout all
+                           follow it.</p>
+                        <p>Decibels are 10&middot;log<sub>10</sub> of the spectrum, not 20,
+                           because a PSD is already magnitude-squared. Empty bins stay at
+                           &minus;&infin; and land on the plot&rsquo;s &minus;Inf rail rather
+                           than being floored to an invented number.</p>
+                        <p class="how">How: Plots &rarr; Spectra in Decibels, or the
+                           <strong>dB</strong> button on the toolbar. The choice is remembered
+                           between runs.</p>
+                    </div>
+                </article>
+
                 <article class="feature-row" id="csd">
                     <figure><a href="images/features/csd.png"><img src="images/features/csd.png" alt="A three-by-three cross-spectral density matrix, each cell showing magnitude above phase wrapped to plus or minus 180 degrees" loading="lazy"></a></figure>
                     <div class="feature-text">
