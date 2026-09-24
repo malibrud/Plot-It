@@ -147,12 +147,14 @@ section {
 .soon-grid {
     max-width: 1000px;
     margin: 32px auto 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
 .soon-card {
+    flex: 0 1 calc((100% - 40px) / 3);
     border: 1px dashed var(--border);
     border-radius: 8px;
     padding: 20px;
@@ -786,7 +788,11 @@ footer a {
         margin-top: 8px;
     }
 
-    .feature-grid, .soon-grid {
+    .feature-grid {
         grid-template-columns: 1fr;
+    }
+
+    .soon-card {
+        flex-basis: 100%;
     }
 }
