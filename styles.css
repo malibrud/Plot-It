@@ -133,8 +133,56 @@ section {
     max-width: none;
 }
 
-#features > h2, #download > h2 {
+#features > h2, #coming-soon > h2, #download > h2 {
     margin-top: 0;
+}
+
+.soon-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.soon-grid {
+    max-width: 1000px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.soon-card {
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.soon-card h3 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-size: 1.05rem;
+}
+
+.soon-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.badge-next {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 1px 9px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    color: var(--accent-dark);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    white-space: nowrap;
 }
 
 .feature-grid {
@@ -738,7 +786,7 @@ footer a {
         margin-top: 8px;
     }
 
-    .feature-grid {
+    .feature-grid, .soon-grid {
         grid-template-columns: 1fr;
     }
 }
