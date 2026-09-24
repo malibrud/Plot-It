@@ -155,7 +155,40 @@ section {
 
 .feature-card-wide {
     grid-column: 1 / -1;
+    border: 1px solid transparent;
     border-top-width: 4px;
+    background:
+        linear-gradient(var(--bg), var(--bg)) padding-box,
+        linear-gradient(90deg, var(--accent), var(--maroon)) border-box;
+    box-shadow: 0 0 28px rgba(92, 124, 250, 0.16);
+}
+
+.badge-new {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), var(--maroon));
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    white-space: nowrap;
+    box-shadow: 0 0 0 0 rgba(226, 89, 107, 0.55);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .badge-new {
+        animation: badge-pulse 2.6s ease-out infinite;
+    }
+}
+
+@keyframes badge-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(226, 89, 107, 0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(226, 89, 107, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(226, 89, 107, 0); }
 }
 
 .feature-card h3 {
@@ -315,31 +348,51 @@ section {
     margin-bottom: 4px;
 }
 
-.gift-note {
-    margin-top: 28px;
-    padding: 20px 24px;
-    background-color: var(--bg-alt);
-    border-left: 3px solid var(--maroon);
-    border-radius: 0 8px 8px 0;
+.about-lead {
+    font-size: 1.12rem;
+    color: var(--ink);
 }
 
-.gift-note h3 {
-    margin: 0 0 10px;
+#about h3 {
+    margin: 32px 0 8px;
     font-size: 0.85rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--maroon);
 }
 
-.gift-note p {
+#about p {
     color: var(--muted);
-    font-size: 0.95rem;
+}
+
+#about .about-lead {
+    color: var(--ink);
+}
+
+.about-callout {
+    margin-top: 36px;
+    padding: 20px 24px;
+    background-color: var(--bg-alt);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+}
+
+#about .about-callout h3 {
+    margin-top: 0;
+    color: var(--accent-dark);
+}
+
+#about .about-callout p {
+    color: var(--ink);
     margin: 0 0 12px;
 }
 
-.gift-note p:last-child {
+#about .about-callout p:last-child {
     margin-bottom: 0;
-    font-style: italic;
+}
+
+#about .about-callout a {
+    color: var(--accent-dark);
 }
 
 #download {

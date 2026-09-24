@@ -46,7 +46,7 @@
         <h2>Features</h2>
         <div class="feature-grid">
             <div class="feature-card feature-card-wide">
-                <h3><a href="features.html#preview">Preview a channel before you plot it</a></h3>
+                <h3><a href="features.html#preview">Preview a channel before you plot it</a><span class="badge-new">New in 0.29</span></h3>
                 <p>Point at a channel in the file tree and it is drawn on its own over the plot,
                    the rest dimmed behind it, with its minimum, maximum, mean, RMS, crest factor
                    and skewness underneath &mdash; and, on a frequency plot, its peak and
@@ -83,18 +83,47 @@
 
     <section id="about">
         <h2>About</h2>
-        <div class="gift-note">
-            <h3>A note on the spirit of this release</h3>
-            <p>EnginPlot is offered as a gift. It&rsquo;s shared freely because sharing is
-               worthwhile in itself, not because anything is owed in return. There&rsquo;s
-               no expectation of support, no promise of bug fixes, no roadmap of feature
-               additions, and no obligation to respond to issues or requests. If it&rsquo;s
-               useful to you, wonderful. If it&rsquo;s not, set it down and no harm done.</p>
-            <p>Please arrive with no expectations of the author beyond the software as it
-               sits here today.</p>
-            <p>This sentiment is offered in the spirit of David Heinemeier Hansson&rsquo;s
-               writing on open source as a gift freely given. The words here are my own;
-               the spirit is his.</p>
+        <p class="about-lead">I&rsquo;m a big believer in software that is easy and intuitive to
+           use. In my job I often need to plot data, and the tools I had for it were neither.</p>
+
+        <h3>The problem</h3>
+        <p>In MATLAB, Excel and Python, plotting is a script. There&rsquo;s an import step, then a
+           processing step, then a plot that is fixed in ways you can&rsquo;t easily change. It
+           works, but it is cumbersome every time, and it stands between you and the question you
+           actually have: what is in this data?</p>
+        <p>Over the years I tried to build the plotter I wanted &mdash; in C++ with wxWidgets, in
+           Java, and in C# with WPF. Each time I found myself fighting the UI framework, which was
+           helpful and in the way at the same time.</p>
+
+        <h3>A different approach &middot; 2023&ndash;2024</h3>
+        <p>In the fall of 2023 I started watching Casey Muratori&rsquo;s <em>Handmade Hero</em>
+           series and coding along with it. After a while I tried building a plotter his way: keep
+           it simple and flat, one unity build, the plain Win32 API, render everything yourself, no
+           dependencies.</p>
+        <p>I wrote the plotting engine for speed, drawing pixels straight into memory and blitting
+           them to the screen. It worked very well. I quickly had a plotter that was fast, small
+           and minimally functional, and in 2024 I began using it for real work. I kept chipping
+           away at features after that, but it was a nights-and-weekends project and progress was
+           slow.</p>
+
+        <h3>Bringing in AI &middot; 2026</h3>
+        <p>By December 2025 it was clear to me that AI-enabled agentic coding had turned a corner,
+           and in the summer of 2026 I started experimenting with it. One of my first projects was
+           this plotter. First I had the AI scan it for problems and fix the bugs it found, then
+           write tests for each module. After that we started adding features &mdash; at first
+           working closely together, especially where performance was key, and then, for the
+           nice-to-have features, with the AI doing the heavy lifting.</p>
+        <p>All of the AI work on this project has been done with Anthropic&rsquo;s Claude: Opus 4.8,
+           5 and 5.5, and Fable 5 while it was free.</p>
+
+        <div class="about-callout">
+            <h3>Why I&rsquo;m sharing it</h3>
+            <p>I built EnginPlot to be helpful to me. If you&rsquo;re in the same boat, I hope you
+               find value in it too.</p>
+            <p>If you try it and like it, <a href="mailto:contact@enginplot.net">let me know</a>.
+               The same goes for a bug you run into or a feature you&rsquo;d like. I&rsquo;m
+               particularly interested in expanding the kinds of files it can read &mdash; if
+               EnginPlot can&rsquo;t open yours, tell me about it.</p>
         </div>
     </section>
 
