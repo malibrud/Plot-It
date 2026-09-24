@@ -153,6 +153,11 @@ section {
     padding: 20px;
 }
 
+.feature-card-wide {
+    grid-column: 1 / -1;
+    border-top-width: 4px;
+}
+
 .feature-card h3 {
     margin: 0 0 8px;
     color: var(--maroon);
