@@ -187,6 +187,9 @@
                         <h3>Time, frequency and histogram views</h3>
                         <p>View time histories, power spectral density, or both together, with
                            or without a histogram panel alongside.</p>
+                        <p>Each segment&rsquo;s mean is removed before the transform, so a channel
+                           riding an offset shows how it varies rather than a spike at 0&nbsp;Hz
+                           taller than anything it actually does.</p>
                         <p class="how">How: Plots &rarr; Time, PSD, Time / PSD, or
                            Time / PSD / Histogram.</p>
                     </div>
@@ -221,6 +224,36 @@
                            and more.</p>
                         <p class="how">How: Plots &rarr; CSD Matrix or CSD Overlaid; Wrap menu
                            for the phase range.</p>
+                    </div>
+                </article>
+
+                <article class="feature-row" id="preview-spectrum">
+                    <figure><a href="images/features/preview-spectrum.png"><img src="images/features/preview-spectrum.png" alt="Pointing at LF Spindle Vert Accel on a PSD plot: its spectrum alone in the framed box, with three columns underneath reading peak frequency 12.7 Hz at 8.51 (m/s^2)^2/Hz or 9.3 dB and a roll-off of -20.7 dB per decade; a noise floor of -41 dB, 246 Hz of signal bandwidth and 50.3 dB of dynamic range; and Nfft 2048 over 21 averages with a 0.979 Hz noise bandwidth and plus or minus 23 percent uncertainty" loading="lazy"></a></figure>
+                    <div class="feature-text">
+                        <h3>Read a channel&rsquo;s spectrum on hover</h3>
+                        <p>On a frequency plot the preview shows the channel&rsquo;s spectrum
+                           instead of its time trace, on the same engineering-unit or decibel
+                           axis as the main plot, and reads it for you in three columns.</p>
+                        <p><strong>Shape</strong> gives the peak&rsquo;s frequency and level,
+                           in engineering units and dB, and the roll-off above it in dB per
+                           decade. <strong>Quality</strong> gives the noise floor, the signal
+                           bandwidth &mdash; the highest frequency still 10&nbsp;dB clear of that
+                           floor &mdash; and the dynamic range between them.
+                           <strong>Calculation</strong> gives Nfft, the number of averages, the
+                           noise bandwidth, and the random error the averaging leaves on the
+                           result.</p>
+                        <p>A channel too slow for the bin spacing to resolve &mdash; a vehicle
+                           speed, a steering angle &mdash; is flagged <strong>Not a vibration
+                           channel</strong>, with the share of its variation sitting below that
+                           resolution, rather than being handed a peak that means nothing.</p>
+                        <p>In the CSD plots the preview pairs the channel with every plotted
+                           channel from its own file: its own spectrum first, then its cross
+                           spectrum with each of them, following the main plot&rsquo;s decibel and
+                           phase-wrap settings. A table underneath gives, for each pair, where
+                           the cross spectrum peaks, its level and phase there, the coherence at
+                           that peak, and a band coherence weighted so the frequencies where the
+                           two channels share power are the ones that decide it.</p>
+                        <p class="how">How: point at a channel row on any PSD or CSD plot.</p>
                     </div>
                 </article>
 
@@ -281,12 +314,31 @@
                     </div>
                 </article>
 
-                <article class="feature-row" id="hover-stats">
-                    <figure class="figure-tall"><a href="images/features/hover-stats.png"><img src="images/features/hover-stats.png" alt="A tooltip over the Engine Speed channel showing its sample count and range" loading="lazy"></a></figure>
+                <article class="feature-row" id="preview">
+                    <figure><a href="images/features/preview-time.png"><img src="images/features/preview-time.png" alt="Pointing at Body Vertical Acceleration in the file tree: the channel is drawn alone in a large framed box over the middle of the plot area, the ten plotted traces dimmed behind it, with a Statistics panel underneath giving min, max, mode, mean, standard deviation, RMS, crest factor, skewness and excess kurtosis, and a Notices panel beside it" loading="lazy"></a></figure>
                     <div class="feature-text">
-                        <h3>Channel statistics on hover</h3>
-                        <p>Hover a channel in the file tree to see its sample count, min/max
-                           range and data-quality flags.</p>
+                        <h3>Preview a channel before you plot it</h3>
+                        <p>Point at a channel in the file tree and it is drawn on its own, in a
+                           large framed box over the middle of the plot area, with the main plot
+                           dimmed behind it. It follows the pointer down the list, so you can
+                           read through twenty channels without plotting any of them. The title
+                           bar says what a click will do &mdash; <strong>Click to add</strong> or
+                           <strong>Click to remove</strong>.</p>
+                        <p>The preview always shows the whole record. When the main plot is
+                           zoomed in, the zoomed span is shaded on the preview, so it doubles as
+                           a map of where you are in the file.</p>
+                        <p>Underneath, a Statistics panel gives the channel&rsquo;s minimum,
+                           maximum and mode; its mean, standard deviation and RMS; and its crest
+                           factor, skewness and excess kurtosis. They are taken over the finite
+                           samples only, and the heading says so on a channel that has NaNs or
+                           infinities. A recording with its own timestamps is weighted by how
+                           long each sample was held, so a burst of messages does not outweigh a
+                           long steady stretch. A Notices panel beside it lists the channel&rsquo;s
+                           data-quality warnings with their counts.</p>
+                        <p>On a large file still being worked out, the figures show as
+                           &ldquo;&hellip;&rdquo; and fill in on their own &mdash; the channel
+                           you are pointing at is moved to the front of the queue.</p>
+                        <p class="how">How: point at a channel row. Nothing to turn on.</p>
                     </div>
                 </article>
 
@@ -319,9 +371,11 @@
                            1e12), <strong>S</strong> for subnormals &mdash; numbers so close to
                            zero that they have lost precision &mdash; and a flag for a dead
                            channel that never changes value.</p>
-                        <p>Hovering gives the breakdown: how many samples each check caught and
-                           what fraction of the channel that is. The file row totals it up, so
-                           a file says &ldquo;18 red&rdquo; before you open a single channel.</p>
+                        <p>Pointing at a channel gives the breakdown, in the
+                           <a href="#preview">preview&rsquo;s</a> Notices panel: how many samples
+                           each check caught and what fraction of the channel that is. The file
+                           row totals it up, so a file says &ldquo;18 red&rdquo; before you open
+                           a single channel.</p>
                     </div>
                 </article>
 

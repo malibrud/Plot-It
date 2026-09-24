@@ -27,6 +27,59 @@
     <section id="changelog">
         <h2>Changelog</h2>
 
+        <div class="release" id="v0-29">
+            <h3>0.29 <time>&mdash; September 23, 2026</time></h3>
+            <ul>
+                <li>Pointing at a channel in the file tree now previews it. The channel is
+                    drawn on its own in a large framed box over the middle of the plot area,
+                    with the main plot dimmed around it, and it follows the pointer down the
+                    list. The preview always shows the whole record, and when the main plot is
+                    zoomed the zoomed span is shaded on it, so it reads as a map of where you
+                    are. The title bar says what a click will do &mdash; <strong>Click to
+                    add</strong> or <strong>Click to remove</strong>.</li>
+                <li>Under the preview, a Statistics panel gives the channel's minimum, maximum
+                    and mode; its mean, standard deviation and RMS; and its crest factor,
+                    skewness and excess kurtosis. They are taken over the channel's finite
+                    samples only, and the panel says so on a channel that has NaNs or
+                    infinities. A recording that carries its own timestamps is weighted by how
+                    long each sample was held, so a burst of messages does not outweigh a long
+                    steady stretch. On a large file the figures show as &ldquo;&hellip;&rdquo;
+                    and fill in on their own, with the channel you are pointing at worked out
+                    first.</li>
+                <li>A Notices panel beside it lists the channel's data-quality warnings with
+                    their counts.</li>
+                <li>On a PSD plot the preview draws the channel's spectrum instead, on the same
+                    engineering-unit or decibel axis as the main plot, and reads it in three
+                    columns: the peak's frequency and level, with the roll-off above it; the
+                    noise floor, the signal bandwidth and the dynamic range between them; and
+                    how the spectrum was computed &mdash; Nfft, the number of averages, the
+                    noise bandwidth, and the random error the averaging leaves behind.</li>
+                <li>A channel too slow for the PSD's bin spacing to resolve &mdash; a vehicle
+                    speed, a steering angle &mdash; is flagged <strong>Not a vibration
+                    channel</strong>, with the share of its variation sitting below that
+                    resolution, rather than being given a peak that means nothing.</li>
+                <li>In the Time+PSD and Time+PSD+Histogram plots the preview shows both halves,
+                    divided by a line: the time trace with its statistics, then the spectrum
+                    across the full width with its own.</li>
+                <li>In the CSD plots the preview pairs the channel with every plotted channel
+                    from its own file &mdash; its own spectrum first, then its cross spectrum
+                    with each of them, following the main plot's decibel and phase-wrap
+                    settings. A table underneath gives, for each pair, where the cross spectrum
+                    peaks, its level and phase there, the coherence at that peak, and a band
+                    coherence weighted so the frequencies where the two channels share power
+                    are the ones that decide it.</li>
+                <li>The channel tooltip in the file tree is gone. Its range and quality
+                    warnings are in the preview now, and its sample count is on the file's own
+                    row.</li>
+                <li>PSD and CSD remove each segment's mean before the transform. A channel
+                    riding an offset no longer shows a spike at 0&nbsp;Hz taller than anything
+                    it actually does, which used to set the scale for the whole plot.</li>
+                <li>Fixed: the phase in the CSD plots had the wrong sign for its labels, so the
+                    matrix showed the opposite triangle from the one its labels named. A
+                    channel that lags now reads negative.</li>
+            </ul>
+        </div>
+
         <div class="release" id="v0-28">
             <h3>0.28 <time>&mdash; September 22, 2026</time></h3>
             <ul>
