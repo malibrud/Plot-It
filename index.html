@@ -88,9 +88,9 @@
 
         <h3>The problem</h3>
         <p>In tools like MATLAB, Excel and Python, plotting is script driven. There&rsquo;s an import step, then a
-           processing step, then a plot that is fixed in ways you can&rsquo;t easily change. It
-           works, but it is unnesicerily cumbersome, and it stands between you and the question you
-           actually have: what is in this data?</p>
+           processing step, then a plot that is fixed in ways that are hard to change. It
+           works, but it is unnecessarily cumbersome, and it gets in the way of the real question:
+           what is in this data?</p>
         <p>Over the years I tried to build the plotter I wanted &mdash; in C++ with wxWidgets, in
            Java, and in C# with WPF. Each time I found myself fighting the UI framework, which was
            helpful and "in the way" at the same time.</p>
@@ -98,7 +98,7 @@
         <h3>A different approach &middot; 2023&ndash;2024</h3>
         <p>In the fall of 2023 I started watching Casey Muratori&rsquo;s <em>Handmade Hero</em>
            series and coding along with it. After a while I tried building a plotter his way: keep
-           it simple and flat, one unity build, the plain Win32 API, render everything yourself, no
+           it simple and flat, one unity build, the plain Win32 API, all the rendering done by hand, no
            dependencies.</p>
         <p>I wrote the plotting engine for speed, drawing pixels straight into memory and blitting
            them to the screen. It worked very well. I quickly had a plotter that was fast, small
@@ -111,19 +111,19 @@
            and in the summer of 2026 I started experimenting with it. One of my first projects was
            this plotter. First I had the AI scan it for problems and fix the bugs it found, then
            write tests for each module. After that I started adding features &mdash; at first
-           working closely together, especially where performance was key, and then, for the
+           working closely with the AI, especially where performance was key, and then, for the
            nice-to-have features, with the AI doing the heavy lifting.</p>
         <p>All of the AI work on this project has been done with Anthropic&rsquo;s Claude: Opus 4.8,
            5 and 5.5, and Fable 5 while it was free.</p>
 
         <div class="about-callout">
             <h3>Why I&rsquo;m sharing it</h3>
-            <p>I built EnginPlot to be helpful to me. If you&rsquo;re in the same boat, I hope you
-               find value in it too.</p>
-            <p>If you try it and like it, <a href="mailto:contact@enginplot.net">let me know</a>.
-               The same goes for a bug you run into or a feature you&rsquo;d like. I&rsquo;m
-               particularly interested in expanding the kinds of files it can read &mdash; if
-               EnginPlot can&rsquo;t open yours, tell me about it.</p>
+            <p>I built EnginPlot to be helpful to me, and I&rsquo;m sharing it in the hope that
+               others in the same boat find value in it too.</p>
+            <p>I&rsquo;d be glad to <a href="mailto:contact@enginplot.net">hear from</a> anyone who
+               tries it &mdash; whether it proved useful, turned up a bug, or is missing a feature.
+               I&rsquo;m particularly interested in expanding the kinds of files it can read, so word
+               of a format it can&rsquo;t open yet is especially welcome.</p>
         </div>
     </section>
 
