@@ -283,6 +283,16 @@ section {
     max-width: 720px;
 }
 
+.sample-subhead {
+    margin: 48px 0 8px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.release-row-info h3 a {
+    color: inherit;
+}
+
 #changelog, #license, #releases {
     max-width: 720px;
 }
