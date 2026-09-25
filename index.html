@@ -55,7 +55,11 @@
             </div>
             <div class="feature-card">
                 <h3><a href="features.html#formats">Reads what you already have</a></h3>
-                <p>RPC3, PLT/SimCreator, fstrm/Moog F-Stream, CSV and space-separated text, with header, unit and date-time detection &mdash; and a CSV reader that opens files other tools refuse.</p>
+                <p><a href="https://www.mts.com/en/products/software-monitoring/rpc-connect-software">RPC3</a>,
+                   PLT/<a href="https://www.faac.com/realtime-technologies/products/simcreator/">SimCreator</a>,
+                   fstrm/<a href="https://www.moog.com/products/test-systems/test-controllers-software/test-software-integrated-test-suite.html">Moog F&#8209;Stream</a>,
+                   CSV and space-separated text, with header, unit and date-time detection &mdash;
+                   and a CSV reader that opens files other tools refuse.</p>
             </div>
             <div class="feature-card">
                 <h3><a href="features.html#spectra">Time, frequency and histogram views</a></h3>
@@ -98,8 +102,10 @@
             </div>
             <div class="soon-card">
                 <h3>More file formats</h3>
-                <p>National Instruments TDMS first, then DEWESoft DXD. Other formats are welcome
-                   suggestions &mdash; see the note under About.</p>
+                <p><a href="https://www.ni.com/en/support/documentation/supplemental/06/the-ni-tdms-file-format.html">National
+                   Instruments TDMS</a> first, then <a href="https://dewesoft.com/">DEWESoft</a> DXD.
+                   Other formats are welcome suggestions &mdash; see the note under
+                   <a href="#about">About</a>.</p>
             </div>
             <div class="soon-card">
                 <h3>Units that know what they measure</h3>
@@ -121,19 +127,23 @@
            use.</p>
 
         <h3>The problem</h3>
-        <p>In tools like MATLAB, Excel and Python, plotting is script driven. There&rsquo;s an import step, then a
-           processing step, then a plot that is fixed in ways that are hard to change. It
-           works, but it is unnecessarily cumbersome, and it gets in the way of the real question:
-           what is in this data?</p>
-        <p>Over the years I tried to build the plotter I wanted &mdash; in C++ with wxWidgets, in
-           Java, and in C# with WPF. Each time I found myself fighting the UI framework, which was
-           helpful and "in the way" at the same time.</p>
+        <p>In tools like <a href="https://www.mathworks.com/products/matlab.html">MATLAB</a>, <a href="https://www.python.org/">Python</a> and <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Excel</a>, plotting is
+           process- and script-driven. There&rsquo;s an import step, then a processing step, then
+           plotting, then often manual labeling &mdash; for a plot that is fixed in ways that are
+           hard to change. It works, but it is unnecessarily cumbersome, not repeatable, requires
+           large applications to be installed, and it gets in the way of the real question: what
+           is in this data?</p>
+        <p>Over the years I tried to build the plotter I wanted &mdash; first in C++ with
+           <a href="https://www.wxwidgets.org/">wxWidgets</a>, then in <a href="https://dev.java/">Java</a>, and then in C# with <a href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/">WPF</a>. Each time I
+           found myself fighting the UI framework, which was helpful and &ldquo;in the way&rdquo;
+           at the same time. I found these frameworks very effective at standard UI features
+           (buttons, text boxes, groupings), but doing something custom was challenging.</p>
 
         <h3>A different approach &middot; 2023&ndash;2024</h3>
-        <p>In the fall of 2023 I started watching Casey Muratori&rsquo;s <em>Handmade Hero</em>
-           series and coding along with it. After a while I tried building a plotter his way: keep
-           it simple and flat, one unity build, the plain Win32 API, all the rendering done by hand, no
-           dependencies.</p>
+        <p>In the fall of 2023 I started watching <a href="https://caseymuratori.com/">Casey Muratori&rsquo;s</a> <a href="https://guide.handmadehero.org/"><em>Handmade Hero</em></a>
+           video series and coding along with it. After a while I tried building a plotter his way:
+           keep it simple and flat, one unity build, the plain <a href="https://learn.microsoft.com/en-us/windows/win32/">Win32 API</a>, all the rendering
+           done by hand, no dependencies.</p>
         <p>I wrote the plotting engine for speed, drawing pixels straight into memory and blitting
            them to the screen. It worked very well. I quickly had a plotter that was fast, small
            and minimally functional, and in 2024 I began using it for real work. I kept chipping
@@ -147,8 +157,8 @@
            write tests for each module. After that I started adding features &mdash; at first
            working closely with the AI, especially where performance was key, and then, for the
            nice-to-have features, with the AI doing the heavy lifting.</p>
-        <p>All of the AI work on this project has been done with Anthropic&rsquo;s Claude: Opus 4.8,
-           5 and 5.5, and Fable 5 while it was free.</p>
+        <p>All of the AI work on this project has been done with Anthropic&rsquo;s <a href="https://www.anthropic.com/claude">Claude</a>:
+           Opus 4.8, 5 and 5.5, and Fable 5 while it was free.</p>
 
         <div class="about-callout">
             <h3>Why I&rsquo;m sharing it</h3>
